@@ -1,0 +1,6 @@
+HELLO                   HOLA
+BOOK                    LIBRO
+SCHOOL                  ESCUELA
+WATER                   AGUA
+COMPUTER                COMPUTADORA
+FLOWER                  FLOR
