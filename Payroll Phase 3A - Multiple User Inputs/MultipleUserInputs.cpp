@@ -1,3 +1,10 @@
+/*
+WILLIAM COOK
+2/14/21
+
+This program takes a predetermined number of entries from the user and outputs
+the same information as the Phase 2B Net Pay program.
+*/
 #include <iostream>
 using namespace std;
 
@@ -21,14 +28,14 @@ int main(){
         grossPay = hoursWorked * hourlyPay;
         taxAmount = grossPay * taxRate;
         netPay = grossPay - taxAmount;
-        cout << "\n";
-        cout << "YOUR ID IS: " << employeeID << "\n";
-        cout << "YOUR HOURS WORKED IS: " << hoursWorked << "\n";
-        cout << "YOUR HOURLY RATE IS: $" << hourlyPay << "\n";
-        cout << "YOUR GROSS PAY IS: $" << grossPay << "\n";
-        cout << "YOUR TAX RATE IS: " << taxRate << "\n";
-        cout << "YOUR TAX AMOUNT IS: $" << taxAmount << "\n";
-        cout << "YOUR NET PAY IS: $" << netPay << "\n";
+        cout << endl;
+        cout << "YOUR ID IS: " << employeeID << endl;
+        cout << "YOUR HOURS WORKED IS: " << hoursWorked << endl;
+        cout << "YOUR HOURLY RATE IS: $" << hourlyPay << endl;
+        cout << "YOUR GROSS PAY IS: $" << grossPay << endl;
+        cout << "YOUR TAX RATE IS: " << taxRate << endl;
+        cout << "YOUR TAX AMOUNT IS: $" << taxAmount << endl;
+        cout << "YOUR NET PAY IS: $" << netPay << endl;
     }//WHILE
     return 0;
 }//MAIN
