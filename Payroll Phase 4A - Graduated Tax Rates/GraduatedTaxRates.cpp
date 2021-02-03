@@ -12,11 +12,16 @@ using namespace std;
 int main(){
     int employeeID, counter, inputQuantity;
     float hoursWorked, hourlyPay, grossPay, taxRate, taxAmount, netPay;
-    taxRate = 0.10;
 
     ifstream fin("./employee.in");
     while(fin >> employeeID >> hoursWorked >> hourlyPay){
         grossPay = hoursWorked * hourlyPay;
+
+        if (grossPay > 1000) taxRate = 0.3;
+        else if (grossPay > 800) taxRate = 0.2;
+        else if (grossPay > 500) taxRate = 0.1;
+        else taxRate = 0.0;
+
         taxAmount = grossPay * taxRate;
         netPay = grossPay - taxAmount;
         cout << endl;
