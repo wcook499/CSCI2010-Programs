@@ -7,7 +7,6 @@ information as the Phase 2B Net Pay program.
 */
 #include <iostream>
 #include <fstream>
-#include <string>
 using namespace std;
 
 int main(){
