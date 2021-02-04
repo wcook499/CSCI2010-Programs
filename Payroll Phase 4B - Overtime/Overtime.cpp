@@ -12,14 +12,24 @@ using namespace std;
 int main(){
     char maritalStatus;
     int employeeID, counter, inputQuantity;
-    float hoursWorked, hourlyPay, grossPay, taxRate, taxAmount, netPay;
+    float hoursWorked, hourlyPay, overtimeHours, overtimePay, grossPay, taxRate, taxAmount, 
+        netPay;
 
     ifstream fin("./employee.in");
     while(fin >> employeeID >> hoursWorked >> hourlyPay  >> maritalStatus){
 
         //Determine Gross Pay based on hours worked and pay rate
-        grossPay = hoursWorked * hourlyPay;
+        //grossPay = hoursWorked * hourlyPay;
 
+        if (hoursWorked > 40){
+            overtimeHours = hoursWorked - 40;
+            overtimePay = (hourlyPay * 0.5) * overtimeHours;
+            grossPay = (40 * hourlyPay) + overtimeHours;
+        }
+        else if (hoursWorked <= 40){
+            grossPay = hoursWorked * hourlyPay;
+        }
+        
         //Get base Tax Rate based on gross pay
         if (grossPay > 1000) taxRate = 0.3;
         else if (grossPay > 800) taxRate = 0.2;
