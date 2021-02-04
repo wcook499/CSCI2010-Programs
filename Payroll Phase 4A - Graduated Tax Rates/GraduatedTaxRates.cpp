@@ -24,8 +24,9 @@ int main(){
         else if (grossPay > 500) taxRate = 0.1;
         else taxRate = 0.0;
 
-        if (maritalStatus == "m") || (maritalStatus == "M")
-
+        if (maritalStatus == "s") || (maritalStatus == "S") taxRate += 0.05;
+        if (maritalStatus == "h") || (maritalStatus == "H") taxRate -= 0.05;
+        
         taxAmount = grossPay * taxRate;
         netPay = grossPay - taxAmount;
         cout << endl;
