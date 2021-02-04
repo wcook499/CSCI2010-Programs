@@ -7,20 +7,24 @@ information as the Phase 2B Net Pay program.
 */
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 int main(){
+    char maritalStatus;
     int employeeID, counter, inputQuantity;
     float hoursWorked, hourlyPay, grossPay, taxRate, taxAmount, netPay;
 
     ifstream fin("./employee.in");
-    while(fin >> employeeID >> hoursWorked >> hourlyPay){
+    while(fin >> employeeID >> hoursWorked >> hourlyPay  >> maritalStatus){
         grossPay = hoursWorked * hourlyPay;
 
         if (grossPay > 1000) taxRate = 0.3;
         else if (grossPay > 800) taxRate = 0.2;
         else if (grossPay > 500) taxRate = 0.1;
         else taxRate = 0.0;
+
+        if (maritalStatus == "m") || (maritalStatus == "M")
 
         taxAmount = grossPay * taxRate;
         netPay = grossPay - taxAmount;
