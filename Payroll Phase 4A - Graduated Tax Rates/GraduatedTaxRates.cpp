@@ -17,9 +17,10 @@ int main(){
     ifstream fin("./employee.in");
     while(fin >> employeeID >> hoursWorked >> hourlyPay  >> maritalStatus){
 
+        //Determine Gross Pay based on hours worked and pay rate
         grossPay = hoursWorked * hourlyPay;
 
-        //Get base tax rate based on gross pay
+        //Get base Tax Rate based on gross pay
         if (grossPay > 1000) taxRate = 0.3;
         else if (grossPay > 800) taxRate = 0.2;
         else if (grossPay > 500) taxRate = 0.1;
@@ -30,8 +31,11 @@ int main(){
         if ((maritalStatus == 's') || (maritalStatus == 'S')) taxRate += 0.05;
         if ((maritalStatus == 'h') || (maritalStatus == 'H')) taxRate -= 0.05;
         
+        //Determine Net Pay
         taxAmount = grossPay * taxRate;
         netPay = grossPay - taxAmount;
+        
+        //Display information to user
         cout << endl;
         cout << "YOUR ID IS: " << employeeID << endl;
         cout << "YOUR HOURS WORKED IS: " << hoursWorked << endl;
