@@ -17,15 +17,19 @@ int main(){
 
     ifstream fin("./employee.in");
     while(fin >> employeeID >> hoursWorked >> hourlyPay  >> maritalStatus){
+
         grossPay = hoursWorked * hourlyPay;
 
+        //Get base tax rate based on gross pay
         if (grossPay > 1000) taxRate = 0.3;
         else if (grossPay > 800) taxRate = 0.2;
         else if (grossPay > 500) taxRate = 0.1;
         else taxRate = 0.0;
 
-        if (maritalStatus == "s") || (maritalStatus == "S") taxRate += 0.05;
-        if (maritalStatus == "h") || (maritalStatus == "H") taxRate -= 0.05;
+        //Modify base tax rate based on marital status:
+        //Married (NC), Head of Household (-5%), Single (+5%)
+        if ((maritalStatus == 's') || (maritalStatus == 'S')) taxRate += 0.05;
+        if ((maritalStatus == 'h') || (maritalStatus == 'H')) taxRate -= 0.05;
         
         taxAmount = grossPay * taxRate;
         netPay = grossPay - taxAmount;
