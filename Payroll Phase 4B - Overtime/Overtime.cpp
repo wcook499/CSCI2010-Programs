@@ -40,6 +40,9 @@ int main(){
         if ((maritalStatus == 's') || (maritalStatus == 'S')) taxRate += 0.05;
         if ((maritalStatus == 'h') || (maritalStatus == 'H')) taxRate -= 0.05;
         
+        //Catch negative tax rates and correct to 0
+        if (taxRate < 0) taxRate = 0;
+
         //Determine Net Pay
         taxAmount = grossPay * taxRate;
         netPay = grossPay - taxAmount;
