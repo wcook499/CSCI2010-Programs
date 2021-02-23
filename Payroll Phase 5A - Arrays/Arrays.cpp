@@ -5,8 +5,9 @@ WILLIAM COOK
 This program opens a file and reads employee information, then outputs the same
 information as the Phase 2B Net Pay program.
 */
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main(){
