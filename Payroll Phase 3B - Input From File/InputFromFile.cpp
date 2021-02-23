@@ -10,7 +10,7 @@ information as the Phase 2B Net Pay program.
 using namespace std;
 
 int main(){
-    int employeeID, counter, inputQuantity;
+    int employeeID;
     float hoursWorked, hourlyPay, grossPay, taxRate, taxAmount, netPay;
     taxRate = 0.10;
 

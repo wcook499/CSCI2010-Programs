@@ -11,7 +11,7 @@ using namespace std;
 
 int main(){
     char maritalStatus;
-    int employeeID, counter, inputQuantity;
+    int employeeID[100];
     float hoursWorked, hourlyPay, overtimeHours, overtimePay, grossPay,
     taxRate, taxAmount, netPay;
 
