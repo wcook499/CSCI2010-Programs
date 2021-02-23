@@ -47,11 +47,10 @@ int main(){
         taxAmount[i] = grossPay[i] * taxRate[i];
         netPay[i] = grossPay[i] - taxAmount[i];
         
-        i++;
+
 
         //Display information to user
         cout << endl;
-        cout << "INDEX IS: " << i << endl;
         cout << "YOUR ID IS: " << employeeID[i] << endl;
         cout << "YOUR HOURS WORKED IS: " << hoursWorked[i] << endl;
         cout << "YOUR HOURLY RATE IS: $" << hourlyPay[i] << endl;
@@ -59,6 +58,7 @@ int main(){
         cout << "YOUR TAX RATE IS: " << taxRate[i] << endl;
         cout << "YOUR TAX AMOUNT IS: $" << taxAmount[i] << endl;
         cout << "YOUR NET PAY IS: $" << netPay[i] << endl;
+        i++;
     }//WHILE
     return 0;
 }//MAIN
