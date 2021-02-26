@@ -3,7 +3,7 @@
 WILLIAM COOK
 2/28/21
 
-Payroll Phase 5A - Arrays
+Payroll Phase 5A & B - Arrays & Seperate Loop
 
 */
 #include <fstream>
