@@ -83,6 +83,7 @@ int main(){
         netPay[i] = grossPay[i] - taxAmount[i];
     }//for
 
+
     //Display information to user
     cout << "DR. EBRAHIMI'S PAYROLL INSTITUTE" << endl;
 
