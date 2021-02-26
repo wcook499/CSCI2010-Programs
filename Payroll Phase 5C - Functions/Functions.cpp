@@ -12,19 +12,16 @@ Payroll Phase 5A & B - Arrays & Seperate Loop
 #include <string>
 using namespace std;
 
-int main(){
+//int function(int);
+int getNumLines();
+void readData();
 
-    //First, determine number of lines in "employee.in" file.  We will use this to determine the correct size of the
-    //arrays.
-    ifstream myFile;
-    string line;
-    int numLines;
-    myFile.open("employee.in");
-    for(numLines = 0; getline(myFile,line); numLines++);
+
+int main(){
 
 
     //Declare variables
-    const int arrayLen = numLines;
+    const int arrayLen = getNumLines();
     char maritalStatus[arrayLen];
     string firstName[arrayLen], lastName[arrayLen];
     int employeeID[arrayLen], i = 0;
@@ -103,3 +100,14 @@ int main(){
     }//for
 return 0;
 }//MAIN
+
+int getNumLines(){
+    //First, determine number of lines in "employee.in" file.  We will use this to determine the correct size of the
+    //arrays.
+    ifstream myFile;
+    string line;
+    int numLines;
+    myFile.open("employee.in");
+    for(numLines = 0; getline(myFile,line); numLines++);
+    return numLines;
+}
