@@ -101,52 +101,5 @@ int main(){
              << overtimeHours[i] << setw(15) << regularPay[i] << setw(15) << grossPay[i] << setw(15)
              << taxAmount[i] << setw(15) << netPay[i] << endl;
     }//for
+return 0;
 }//MAIN
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-/*
-
-
-
-        
-
-        
-        //Display information to user
-        cout << "DR. EBRAHIMI'S PAYROLL INSTITUTE" << endl;
-        cout << endl;
-        cout << "FIRST NAME" << setw(15) << "LAST NAME" << setw(15) << "STAT" <<  setw(15) << "SSN"
-            << setw(15) << "HW" << setw(15) << "HR" << setw(15) << "OTH" << setw(15) << "REGP"
-            << setw(15) << "GROSS" << setw(15) << "TAX" << setw(15) << "NET" << endl;
-
-
-        i++
-        /*
-        cout << "YOUR ID IS: " << employeeID[i] << endl;
-        cout << "YOUR HOURS WORKED IS: " << hoursWorked[i] << endl;
-        cout << "YOUR HOURLY RATE IS: $" << hourlyPay[i] << endl;
-        cout << "YOUR GROSS PAY IS: $" << grossPay[i] << endl;
-        cout << "YOUR TAX RATE IS: " << taxRate[i] << endl;
-        cout << "YOUR TAX AMOUNT IS: $" << taxAmount[i] << endl;
-        cout << "YOUR NET PAY IS: $" << netPay[i] << endl;
-        i++;
-        }//WHILE
-    }//for
-    return 0;
-}//MAIN
-*/
