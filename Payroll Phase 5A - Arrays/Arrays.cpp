@@ -1,8 +1,10 @@
 /*
+
 WILLIAM COOK
-2/14/21
+2//21
 
 Payroll Phase 5A - Arrays
+
 */
 #include <fstream>
 #include <iostream>
@@ -55,26 +57,31 @@ int main(){
 
 
     //Get base Tax Rate based on gross pay
-    if (grossPay[i] > 1000) taxRate[i] = 0.3;
-    else if (grossPay[i] > 800) taxRate[i] = 0.2;
-    else if (grossPay[i] > 500) taxRate[i] = 0.1;
-    else taxRate[i] = 0.0;
+    for (i = 0; i < arrayLen; i++){
+        if (grossPay[i] > 1000) taxRate[i] = 0.3;
+        else if (grossPay[i] > 800) taxRate[i] = 0.2;
+        else if (grossPay[i] > 500) taxRate[i] = 0.1;
+        else taxRate[i] = 0.0;
+    }//for
 
 
     //Modify base tax rate based on marital status:
     //Married (NC), Head of Household (-5%), Single (+5%)
-    if ((maritalStatus[i] == 's') || (maritalStatus[i] == 'S')) taxRate[i] += 0.05;
-    if ((maritalStatus[i] == 'h') || (maritalStatus[i] == 'H')) taxRate[i] -= 0.05;
+    for (i = 0; i < arrayLen; i++){
+        if ((maritalStatus[i] == 's') || (maritalStatus[i] == 'S')) taxRate[i] += 0.05;
+        if ((maritalStatus[i] == 'h') || (maritalStatus[i] == 'H')) taxRate[i] -= 0.05;
+    
 
-
-    //Catch negative tax rates and correct to 0
-    if (taxRate[i] < 0) taxRate[i] = 0;
+        //Catch negative tax rates and correct to 0
+        if (taxRate[i] < 0) taxRate[i] = 0;
+    }//for
 
 
     //Determine Net Pay
-    taxAmount[i] = grossPay[i] * taxRate[i];
-    netPay[i] = grossPay[i] - taxAmount[i];
-
+    for (i = 0; i < arrayLen; i++){
+        taxAmount[i] = grossPay[i] * taxRate[i];
+        netPay[i] = grossPay[i] - taxAmount[i];
+    }//for
 
     //Display information to user
     cout << "DR. EBRAHIMI'S PAYROLL INSTITUTE" << endl;
