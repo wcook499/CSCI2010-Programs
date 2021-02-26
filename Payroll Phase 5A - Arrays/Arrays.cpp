@@ -20,7 +20,7 @@ int main(){
     string line;
     int numLines;
     myFile.open("employee.in");
-    for(numLines = 0; std::getline(myFile,line); numLines++);
+    for(numLines = 0; getline(myFile,line); numLines++);
 
 
     //Declare variables
