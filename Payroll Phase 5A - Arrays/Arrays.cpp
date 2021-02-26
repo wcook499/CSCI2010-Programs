@@ -49,9 +49,14 @@ int main(){
         netPay[i] = grossPay[i] - taxAmount[i];
         
 
-
+        
         //Display information to user
+        cout << "DR. EBRAHIMI'S PAYROLL INSTITUTE" << endl;
         cout << endl;
+        cout << "FIRST NAME" << setw(15) << "LAST NAME" << setw(15) << "STAT" <<  setw(15) << "SSN"
+            << setw(15) << "HW" << setw(15) << "HR" << setw(15) << "OTH" << setw(15) << "REGP"
+            << setw(15) << "GROSS" << setw(15) << "TAX" << setw(15) << "NET" << endl;
+        /*
         cout << "YOUR ID IS: " << employeeID[i] << endl;
         cout << "YOUR HOURS WORKED IS: " << hoursWorked[i] << endl;
         cout << "YOUR HOURLY RATE IS: $" << hourlyPay[i] << endl;
@@ -60,6 +65,7 @@ int main(){
         cout << "YOUR TAX AMOUNT IS: $" << taxAmount[i] << endl;
         cout << "YOUR NET PAY IS: $" << netPay[i] << endl;
         i++;
+        */
     }//WHILE
     return 0;
 }//MAIN
