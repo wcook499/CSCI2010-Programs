@@ -12,30 +12,35 @@ Payroll Phase 5A & B - Arrays & Seperate Loop
 #include <string>
 using namespace std;
 
+
+//Declare variables
+const int   arrayLen = 100;
+char        maritalStatus[arrayLen];
+string      firstName[arrayLen],
+            lastName[arrayLen];
+int         //i = 0,
+            employeeID[arrayLen];
+float       hoursWorked[arrayLen],
+            hourlyPay[arrayLen],
+            overtimeHours[arrayLen],
+            overtimePay[arrayLen],
+            grossPay[arrayLen],
+            taxRate[arrayLen],
+            taxAmount[arrayLen],
+            netPay[arrayLen],
+            regularPay[arrayLen];
+
+
 //int function(int);
-int getNumLines();
-void readData();
+void createArrays(int);
 
 
 int main(){
 
+    //Create Arrays
+    createArrays(arrayLen);
 
-    //Declare variables
-    const int arrayLen = getNumLines();
-    char maritalStatus[arrayLen];
-    string firstName[arrayLen], lastName[arrayLen];
-    int employeeID[arrayLen], i = 0;
-    float hoursWorked[arrayLen], hourlyPay[arrayLen], overtimeHours[arrayLen], overtimePay[arrayLen], grossPay[arrayLen],
-    taxRate[arrayLen], taxAmount[arrayLen], netPay[arrayLen], regularPay[arrayLen];
-
-
-    //Read all data into arrays
-    ifstream fin("./employee.in");
-    for (i = 0; i < arrayLen; i++){
-        fin >> firstName[i] >> lastName[i] >> maritalStatus[i] >> employeeID[i] >> hoursWorked[i] >> hourlyPay[i];
-    }//for
-
-
+/*****************************************************************************************************************************
     //Determine Gross Pay based on hours worked and pay rate, calculating
     //overtime if necessary.
     for (i = 0; i < arrayLen; i++){
@@ -98,16 +103,17 @@ int main(){
              << overtimeHours[i] << setw(15) << regularPay[i] << setw(15) << grossPay[i] << setw(15)
              << taxAmount[i] << setw(15) << netPay[i] << endl;
     }//for
+*****************************************************************************************************************/
+
 return 0;
 }//MAIN
 
-int getNumLines(){
-    //First, determine number of lines in "employee.in" file.  We will use this to determine the correct size of the
-    //arrays.
-    ifstream myFile;
-    string line;
-    int numLines;
-    myFile.open("employee.in");
-    for(numLines = 0; getline(myFile,line); numLines++);
-    return numLines;
+void createArrays(int arrayLen){
+    int i;
+    //Read all data into arrays
+    ifstream fin("./employee.in");
+    for (i = 0; i < arrayLen; i++){
+        fin >> firstName[i] >> lastName[i] >> maritalStatus[i] >> employeeID[i] >> hoursWorked[i] >> hourlyPay[i];
+    }//for
+return;
 }
