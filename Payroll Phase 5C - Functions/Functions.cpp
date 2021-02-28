@@ -131,8 +131,8 @@ void displayAllData(){
         if( firstName[i] != "" && lastName[i] != ""){
             cout << setw(10) << firstName[i] << setw(10) << lastName[i] << setw(10) << maritalStatus[i] << setw(10)
                  << employeeID[i] << setw(10) << hoursWorked[i] << setw(10) << hourlyPay[i] << setw(10)
-                << overtimeHours[i] << setw(10) << regularPay[i] << setw(10) << setprecision(2) << grossPay[i]
-                << setw(10) << setprecision(2) << taxAmount[i] << setw(10) << setprecision(2) << netPay[i] << endl;
+                << overtimeHours[i] << setw(10) << regularPay[i] << setw(10) << grossPay[i]
+                << setw(10) << taxAmount[i] << setw(10) << netPay[i] << endl;
         }//if
     }//for
 }
