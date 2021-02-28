@@ -32,12 +32,12 @@ float       hoursWorked[arrayLen],
 
 
 //int function(int);
-void    createArrays(int),
-        getGrossPay(),
-        getBaseTaxRate(),
-        modifyTaxRate(),
-        getNetPay(),
-        displayAllData();
+void        createArrays(int),
+            getGrossPay(),
+            getBaseTaxRate(),
+            modifyTaxRate(),
+            getNetPay(),
+            displayAllData();
 
 int main(){
 
