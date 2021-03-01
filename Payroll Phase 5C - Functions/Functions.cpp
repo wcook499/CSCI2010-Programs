@@ -41,6 +41,7 @@ void        createArrays(int),
             getNetPay(),
             displayAllData();
 
+
 int main(){
 
     createArrays(arrayLen);
@@ -53,6 +54,7 @@ int main(){
 return 0;
 }//MAIN
 
+
 void createArrays(int arrayLen){
     int i;
     //Read all data into arrays
@@ -62,6 +64,7 @@ void createArrays(int arrayLen){
     }//for
 return;
 }
+
 
 void getGrossPay(){
     //Determine Gross Pay based on hours worked and pay rate, calculating
@@ -84,6 +87,7 @@ void getGrossPay(){
 return;
 }
 
+
 void getBaseTaxRate(){
     //Get base Tax Rate based on gross pay
     for (i = 0; i < arrayLen; i++){
@@ -94,6 +98,7 @@ void getBaseTaxRate(){
     }//for
 return;
 }
+
 
 void modifyTaxRate(){
     //Modify base tax rate based on marital status:
@@ -108,6 +113,7 @@ void modifyTaxRate(){
 return;
 }
 
+
 void getNetPay(){
     //Determine Net Pay
     for (i = 0; i < arrayLen; i++){
@@ -116,6 +122,7 @@ void getNetPay(){
     }//for
 return;
 }
+
 
 void displayAllData(){
     //Display information to user
