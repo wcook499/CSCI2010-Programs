@@ -75,7 +75,7 @@ void getGrossPay(){
 
         if (hoursWorked[i] > 40){
             overtimeHours[i] = hoursWorked[i] - 40;
-            overtimePay[i] = (hourlyPay[i] * 0.5) * overtimeHours[i];
+            overtimePay[i] = (hourlyPay[i] * 1.5) * overtimeHours[i];
             regularPay[i] = hoursWorked[i] * hourlyPay[i];
             grossPay[i] = regularPay[i] + overtimePay[i];
         }//if
@@ -131,7 +131,7 @@ void displayAllData(){
     cout << endl;
 
     cout << setw(10) << "FIRST NAME" << setw(10) << "LAST NAME" << setw(10) << "STAT" <<  setw(10) << "SSN"
-         << setw(10) << "HW" << setw(10) << "HR" << setw(10) << "OTH" << setw(10) << "REGP"
+         << setw(10) << "HW" << setw(10) << "HR" << setw(10) << "OTH" << setw(10) << "OTP" << setw(10) << "REGP"
          << setw(10) << "GROSS" << setw(10) << "TAX" << setw(10) << "NET" << endl;
 
     cout << string(110, '=') << endl;
@@ -140,7 +140,7 @@ void displayAllData(){
         if( firstName[i] != "" && lastName[i] != ""){
             cout << setw(10) << firstName[i] << setw(10) << lastName[i] << setw(10) << maritalStatus[i] << setw(10)
                 << employeeID[i] << setw(10) << hoursWorked[i] << setw(10) << hourlyPay[i] << setw(10)
-                << overtimeHours[i] << setw(10) << regularPay[i] << setw(10) << grossPay[i]
+                << overtimeHours[i] <<setw(10) << overtimePay[i] << setw(10) << regularPay[i] << setw(10) << grossPay[i]
                 << setw(10) << taxAmount[i] << setw(10) << netPay[i] << endl;
         }//if
     }//for
