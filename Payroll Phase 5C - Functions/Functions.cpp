@@ -134,7 +134,7 @@ void displayAllData(){
          << setw(10) << "HW" << setw(10) << "HR" << setw(10) << "OTH" << setw(10) << "OTP" << setw(10) << "REGP"
          << setw(10) << "GROSS" << setw(10) << "TAX" << setw(10) << "NET" << endl;
 
-    cout << string(110, '=') << endl;
+    cout << string(120, '=') << endl;
 
     for (i = 0; i < arrayLen; i++){
         if( firstName[i] != "" && lastName[i] != ""){
