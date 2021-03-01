@@ -6,6 +6,8 @@ WILLIAM COOK
 Payroll Phase 5C - Functions
 
 */
+
+
 #include <fstream>
 #include <iostream>
 #include <iomanip>
@@ -31,7 +33,7 @@ float       hoursWorked[arrayLen],
             regularPay[arrayLen];
 
 
-//int function(int);
+//Function Prototypes
 void        createArrays(int),
             getGrossPay(),
             getBaseTaxRate(),
@@ -130,7 +132,7 @@ void displayAllData(){
     for (i = 0; i < arrayLen; i++){
         if( firstName[i] != "" && lastName[i] != ""){
             cout << setw(10) << firstName[i] << setw(10) << lastName[i] << setw(10) << maritalStatus[i] << setw(10)
-                 << employeeID[i] << setw(10) << hoursWorked[i] << setw(10) << hourlyPay[i] << setw(10)
+                << employeeID[i] << setw(10) << hoursWorked[i] << setw(10) << hourlyPay[i] << setw(10)
                 << overtimeHours[i] << setw(10) << regularPay[i] << setw(10) << grossPay[i]
                 << setw(10) << taxAmount[i] << setw(10) << netPay[i] << endl;
         }//if
