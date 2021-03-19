@@ -159,8 +159,9 @@ void getNetPay(float grossPay[], float taxAmount[], float netPay[], int n){
 void printHeader(){
     cout << "DR. EBRAHIMI'S PAYROLL INSTITUTE" << endl;
     cout << endl;
-    cout << setw(10) << "FIRST NAME" << setw(10) << "LAST NAME" << setw(10) << "STAT" <<  setw(10) << "SSN"
-         << setw(10) << "HW" << setw(10) << "HR" << setw(10) << "OTH" << setw(10) << "OTP" << setw(10) << "REGP"
+    cout << setw(10) << "FIRST NAME" << setw(10) << "LAST NAME" << setw(10)
+         << "STAT" <<  setw(10) << "SSN" << setw(10) << "HW" << setw(10) << "HR"
+         << setw(10) << "OTH" << setw(10) << "OTP" << setw(10) << "REGP"
          << setw(10) << "GROSS" << setw(10) << "TAX" << setw(10) << "NET" << endl;
     cout << string(120, '=') << endl;
 }//printHeader
@@ -172,10 +173,12 @@ void printAllData(string firstName[], string lastName[], char maritalStatus[],
                   float grossPay[], float taxAmount[], float netPay[], int n){
     for (int i = 0; i < n; i++){
         if( firstName[i] != "" && lastName[i] != ""){
-            cout << setw(10) << firstName[i] << setw(10) << lastName[i] << setw(10) << maritalStatus[i] << setw(10)
-                << employeeID[i] << setw(10) << hoursWorked[i] << setw(10) << hourlyPay[i] << setw(10)
-                << overtimeHours[i] <<setw(10) << overtimePay[i] << setw(10) << regularPay[i] << setw(10) << grossPay[i]
-                << setw(10) << taxAmount[i] << setw(10) << netPay[i] << endl;
+            cout << setw(10) << firstName[i] << setw(10) << lastName[i] << setw(10)
+            << maritalStatus[i] << setw(10) << employeeID[i] << setw(10)
+            << hoursWorked[i] << setw(10) << hourlyPay[i] << setw(10)
+            << overtimeHours[i] <<setw(10) << overtimePay[i] << setw(10)
+            << regularPay[i] << setw(10) << grossPay[i] << setw(10) << taxAmount[i] 
+            << setw(10) << netPay[i] << endl;
         }//if
     }//for
 }//printAllData
