@@ -203,7 +203,13 @@ void getNetPay(float grossPay[], float taxAmount[], float netPay[], int n){
 
 
 void printHeader(){
-    cout << "DR. EBRAHIMI'S PAYROLL INSTITUTE" << endl;
+
+    cout << "              ██████╗ ██████╗        ███████╗██████╗ ██████╗  █████╗ ██╗  ██╗██╗███╗   ███╗██╗███████╗" << endl;
+    cout << "              ██╔══██╗██╔══██╗       ██╔════╝██╔══██╗██╔══██╗██╔══██╗██║  ██║██║████╗ ████║██║██╔════╝" << endl;
+    cout << "              ██║  ██║██████╔╝       █████╗  ██████╔╝██████╔╝███████║███████║██║██╔████╔██║██║███████╗" << endl;
+    cout << "              ██║  ██║██╔══██╗       ██╔══╝  ██╔══██╗██╔══██╗██╔══██║██╔══██║██║██║╚██╔╝██║██║╚════██║ PAYROLL" << endl;
+    cout << "              ██████╔╝██║  ██║██╗    ███████╗██████╔╝██║  ██║██║  ██║██║  ██║██║██║ ╚═╝ ██║██║███████║ INSTITUTE" << endl;
+    cout << "              ╚═════╝ ╚═╝  ╚═╝╚═╝    ╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚═╝╚══════╝" << endl;
     cout << endl;
     cout << setw(10) << "FIRST NAME" << setw(10) << "LAST NAME" << setw(10)
          << "STAT" <<  setw(10) << "SSN" << setw(10) << "HW" << setw(10) << "HR"
@@ -254,6 +260,6 @@ void printNPAHeader(){
 
 
 void printNPAData(float netPayAverage, int n){
-    cout << "Number of Employees: " << setw(10) << n << endl;
-    cout << "Net Pay Average:     " << setw(10) << netPayAverage << endl;
+    cout << "Number of Employees:" << setw(10) << n << endl;
+    cout << "    Net Pay Average:" << setw(10) << netPayAverage << endl;
 }//printNPAData
