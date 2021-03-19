@@ -3,7 +3,26 @@
 WILLIAM COOK
 2/28/21
 
-Payroll Phase 5C - Functions
+Payroll Phase 6 (Midterm)
+Net Pay Average
+Regular Sort
+Pointer Sort
+
+Program 1- netpay average
+Calculate the average of all employee net pays (salary). Display the 
+computations and average of at least 5 employees. 
+
+ 
+Program 2 - sort netpay (regular sort- exchange or selection)
+Sort the net pays (salary). For now, display only the net pays before sorting 
+and after sorting. 
+
+Program 3 - Sort the netpay by the pointers
+Sort the net pays (salary) using an array of pointers (do not change the data 
+in the original array). For now, display only the net pays before sorting Sort
+the net pays (salary) using an array of pointers (do not change the data in the
+original array). For now, display only the net pays before sorting and after 
+sorting.  
 
 */
 
