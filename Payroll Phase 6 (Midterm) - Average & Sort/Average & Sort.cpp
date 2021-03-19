@@ -38,6 +38,7 @@ using namespace std;
 int         readAllData(string[], string[], char[], int[], float[], float[],
                        const int);
 
+//functions that involve printing basic information
 void        getOvertimeHours(float[], float[], int),
             getOvertimePay(float[], float[], float[], int),
             getRegularPay(float[], float[], float[], int),
@@ -49,6 +50,14 @@ void        getOvertimeHours(float[], float[], int),
             printHeader(),
             printAllData(string[], string[], char[], int[], float[], float[],
                          float[], float[], float[], float[], float[], float[], int);
+
+//function that creates space between different parts of the program output
+void        makeSpace();
+
+//functions that involve calculating and displaying net pay average
+float       getNetPayAverage(float[], int);
+void        printNPAHeader(),
+            printNPAData(float, int);
 
 
 int main(){
@@ -68,10 +77,13 @@ int main(){
                 taxRate[maxSize],
                 taxAmount[maxSize],
                 netPay[maxSize];
-                
 
+                
+    //read all data into arrays
     n = readAllData(firstName, lastName, maritalStatus, employeeID, hoursWorked,
                     hourlyPay, maxSize);
+
+    //perform calculations on data
     getOvertimeHours(hoursWorked, overtimeHours, n);
     getOvertimePay(overtimeHours, hourlyPay, overtimePay, n);
     getRegularPay(hoursWorked, hourlyPay, regularPay, n);
@@ -80,10 +92,25 @@ int main(){
     modifyTaxRate(maritalStatus, taxRate, n);
     getTaxAmount(grossPay, taxRate, taxAmount, n);
     getNetPay(grossPay, taxAmount, netPay, n);
+
+    //print headers and data
     printHeader();
     printAllData(firstName, lastName, maritalStatus, employeeID, hoursWorked,
                  hourlyPay, overtimeHours, overtimePay, regularPay, grossPay,
                  taxAmount, netPay, n);
+
+    //calculate net pay average
+    //netPayAverage = getNetPayAverage(netPay, netPayAverage, n);
+
+    //make space
+    makeSpace();
+
+    //display net pay average headers and data
+    printNPAHeader();
+    printNPAData(getNetPayAverage(netPay, n), n);
+
+    //make space
+    makeSpace();
 
 return 0;
 }//MAIN
@@ -192,12 +219,41 @@ void printAllData(string firstName[], string lastName[], char maritalStatus[],
                   float grossPay[], float taxAmount[], float netPay[], int n){
     for (int i = 0; i < n; i++){
         if( firstName[i] != "" && lastName[i] != ""){
-            cout << setw(10) << firstName[i] << setw(10) << lastName[i] << setw(10)
-            << maritalStatus[i] << setw(10) << employeeID[i] << setw(10)
-            << hoursWorked[i] << setw(10) << hourlyPay[i] << setw(10)
-            << overtimeHours[i] <<setw(10) << overtimePay[i] << setw(10)
-            << regularPay[i] << setw(10) << grossPay[i] << setw(10) << taxAmount[i] 
-            << setw(10) << netPay[i] << endl;
+            cout << fixed << setprecision(2) << setw(10) << firstName[i]
+            << setw(10) << lastName[i] << setw(10) << maritalStatus[i] << setw(10)
+            << employeeID[i] << setw(10) << hoursWorked[i] << setw(10)
+            << hourlyPay[i] << setw(10) << overtimeHours[i] <<setw(10)
+            << overtimePay[i] << setw(10) << regularPay[i] << setw(10)
+            << grossPay[i] << setw(10) << taxAmount[i]  << setw(10) << netPay[i]
+            << endl;
         }//if
     }//for
 }//printAllData
+
+
+void makeSpace(){
+    cout << endl;
+    cout << endl;
+}//makeSpace
+
+
+float getNetPayAverage(float netPay[], int n){
+    float netPayAverage = 0;
+    for (int i = 0; i < n; i++){
+        netPayAverage += netPay[i];
+    }//for
+    netPayAverage = netPayAverage / n;
+return netPayAverage;
+}//getNetPayAverage
+
+
+void printNPAHeader(){
+    cout << "NET PAY AVERAGE" << endl;
+    cout << string(120, '=') << endl;
+}//printNPAHeader
+
+
+void printNPAData(float netPayAverage, int n){
+    cout << "Number of Employees: " << setw(10) << n << endl;
+    cout << "Net Pay Average:     " << setw(10) << netPayAverage << endl;
+}//printNPAData
