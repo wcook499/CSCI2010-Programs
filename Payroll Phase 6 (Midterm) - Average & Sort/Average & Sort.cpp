@@ -31,12 +31,16 @@ sorting.
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cstring>
 using namespace std;
 
 
 //Function Prototypes
 int         readAllData(string[], string[], char[], int[], float[], float[],
                        const int);
+
+//swap function used for sorting netPays
+int         swap(int[], int, int);
 
 //functions that involve printing basic information
 void        getOvertimeHours(float[], float[], int),
@@ -59,6 +63,13 @@ float       getNetPayAverage(float[], int);
 void        printNPAHeader(),
             printNPAData(float, int);
 
+//sorting functions
+void        exchangeSort(float[], int);
+
+//print netPay & sorted arrays
+void        printNetPaySortHeader(),
+            printUnsortedNetPays(float[], int);
+
 
 int main(){
 
@@ -76,8 +87,9 @@ int main(){
                 grossPay[maxSize],
                 taxRate[maxSize],
                 taxAmount[maxSize],
-                netPay[maxSize];
-
+                netPay[maxSize],
+                netPayExchangeSort[maxSize], //copy of netPay array, to be modified by exchangeSort()
+                netPayPointerSort[maxSize]; //copy of netPay array, to show pointerSort() does not modify origional variable
                 
     //read all data into arrays
     n = readAllData(firstName, lastName, maritalStatus, employeeID, hoursWorked,
@@ -92,6 +104,8 @@ int main(){
     modifyTaxRate(maritalStatus, taxRate, n);
     getTaxAmount(grossPay, taxRate, taxAmount, n);
     getNetPay(grossPay, taxAmount, netPay, n);
+    memmove(netPayExchangeSort, netPay, sizeof(netPayExchangeSort));
+    memmove(netPayPointerSort, netPay, sizeof(netPayPointerSort));
 
     //print headers and data
     printHeader();
@@ -111,6 +125,11 @@ int main(){
 
     //make space
     makeSpace();
+
+    //print unsorted net pays
+    printNetPaySortHeader();
+    printUnsortedNetPays(netPay, n);
+    exchangeSort(netPayExchangeSort, n);
 
 return 0;
 }//MAIN
@@ -263,3 +282,52 @@ void printNPAData(float netPayAverage, int n){
     cout << "Number of Employees:" << setw(10) << n << endl;
     cout << "    Net Pay Average:" << setw(10) << netPayAverage << endl;
 }//printNPAData
+
+
+int swap(float slot[], int i, int j){
+    int temp;
+    temp = slot[i];
+    slot[i] = slot[j];
+    slot[j] = temp;
+    return 0;
+}//swap
+
+
+void exchangeSort(float netPay[], int n){
+    cout << "Exchange Sort Before: ";
+
+    for (int i = 0; i < n; i++){
+        cout << netPay[i] << " ";
+    }//for
+
+    cout << endl;
+
+    for (int pass = 1; pass <= n; pass++){
+        for(int scan = 0; scan < n; scan++){
+            if (netPay[scan] > netPay[scan+1]) swap(netPay, scan, scan+1);
+        }//for
+    }//for
+
+    cout << "Exchange Sort After:  ";
+    
+    for (int i = 1; i < n+1; i++){      //ISSUE - all of the data in the array shifted +1 after the exchange sort
+        cout << netPay[i] << " ";       //had to set i = 1 and compare i < n+1 to compensate
+    }//for
+
+    cout << endl << endl;
+}//exchangeSort
+
+
+void printNetPaySortHeader(){
+    cout << "NET PAY SORTS" << endl;
+    cout << string(120, '=') << endl;
+}//printNetPaySortHeader
+
+
+void printUnsortedNetPays(float netPay[], int n){
+    cout << "Unsorted Net Pays:    ";
+    for (int i = 0; i < n; i++){
+        cout << netPay[i] << " "; 
+    }//for
+    cout << endl << endl;
+}//printUnsortedNetPays
