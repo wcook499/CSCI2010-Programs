@@ -266,7 +266,9 @@ void makeSpace(){
     cout << endl;
 }//makeSpace
 
-
+//---------------------------------------------------------------------------//
+//         MODULE 4 MIDTERM PART 1 - NET PAY AVERAGE FUNCTIONS               //
+//---------------------------------------------------------------------------//
 float getNetPayAverage(float netPay[], int n){
     float netPayAverage = 0;
     for (int i = 0; i < n; i++){
@@ -289,6 +291,9 @@ void printNPAData(float netPayAverage, int n){
 }//printNPAData
 
 
+//---------------------------------------------------------------------------//
+//       MODULE 4 MIDTERM PART 2 - REGULAR (EXCHANGE) SWAP FUNCITONS         //
+//---------------------------------------------------------------------------//
 int arraySwap(float slot[], int i, int j){
     int temp;
     temp = slot[i];
@@ -296,15 +301,6 @@ int arraySwap(float slot[], int i, int j){
     slot[j] = temp;
     return 0;
 }//swap
-
-
-int pointerSwap(float slot[], int i, int j){
-    int temp;
-    temp = slot[i];
-    slot[i] = slot[j];
-    slot[j] = temp;
-    return 0;
-}
 
 
 void exchangeSort(float netPay[], int n){
@@ -332,19 +328,17 @@ void exchangeSort(float netPay[], int n){
 }//exchangeSort
 
 
-void printNetPaySortHeader(){
-    cout << "NET PAY SORTS" << endl;
-    cout << string(120, '=') << endl;
-}//printNetPaySortHeader
+//---------------------------------------------------------------------------//
+//           MODULE 4 MIDTERM PART 3 - POINTER SWAP FUNCITONS                //
+//---------------------------------------------------------------------------//
 
-
-void printUnsortedNetPays(float netPay[], int n){
-    cout << "Unsorted Net Pays:    ";
-    for (int i = 0; i < n; i++){
-        cout << netPay[i] << " "; 
-    }//for
-    cout << endl;
-}//printUnsortedNetPays
+int pointerSwap(float slot[], int i, int j){
+    int temp;
+    temp = slot[i];
+    slot[i] = slot[j];
+    slot[j] = temp;
+    return 0;
+}
 
 
 void pointerSort(float netPay[], int n){
@@ -375,3 +369,24 @@ void pointerSort(float netPay[], int n){
 
     cout << endl << endl;
 }//pointerSort
+
+
+
+//---------------------------------------------------------------------------//
+//             PRINT DATA FOR MODULE 4 MIDTERM PARTS 2 & 3                   //
+//---------------------------------------------------------------------------//
+void printNetPaySortHeader(){
+    cout << "NET PAY SORTS" << endl;
+    cout << string(120, '=') << endl;
+}//printNetPaySortHeader
+
+
+void printUnsortedNetPays(float netPay[], int n){
+    cout << "Unsorted Net Pays:    ";
+    for (int i = 0; i < n; i++){
+        cout << netPay[i] << " "; 
+    }//for
+    cout << endl;
+}//printUnsortedNetPays
+
+
