@@ -40,7 +40,8 @@ int         readAllData(string[], string[], char[], int[], float[], float[],
                        const int);
 
 //swap function used for sorting netPays
-int         swap(int[], int, int);
+int         arraySwap(int[], int, int),
+            pointerSwap(int[], int, int);
 
 //functions that involve printing basic information
 void        getOvertimeHours(float[], float[], int),
@@ -64,7 +65,8 @@ void        printNPAHeader(),
             printNPAData(float, int);
 
 //sorting functions
-void        exchangeSort(float[], int);
+void        exchangeSort(float[], int),
+            pointerSort(float[], int);
 
 //print netPay & sorted arrays
 void        printNetPaySortHeader(),
@@ -129,7 +131,10 @@ int main(){
     //print unsorted net pays
     printNetPaySortHeader();
     printUnsortedNetPays(netPay, n);
+    makeSpace();
     exchangeSort(netPayExchangeSort, n);
+    makeSpace();
+    pointerSort(netPayPointerSort, n);
 
 return 0;
 }//MAIN
@@ -284,13 +289,22 @@ void printNPAData(float netPayAverage, int n){
 }//printNPAData
 
 
-int swap(float slot[], int i, int j){
+int arraySwap(float slot[], int i, int j){
     int temp;
     temp = slot[i];
     slot[i] = slot[j];
     slot[j] = temp;
     return 0;
 }//swap
+
+
+int pointerSwap(float slot[], int i, int j){
+    int temp;
+    temp = slot[i];
+    slot[i] = slot[j];
+    slot[j] = temp;
+    return 0;
+}
 
 
 void exchangeSort(float netPay[], int n){
@@ -304,7 +318,7 @@ void exchangeSort(float netPay[], int n){
 
     for (int pass = 1; pass <= n; pass++){
         for(int scan = 0; scan < n; scan++){
-            if (netPay[scan] > netPay[scan+1]) swap(netPay, scan, scan+1);
+            if (netPay[scan] > netPay[scan+1]) arraySwap(netPay, scan, scan+1);
         }//for
     }//for
 
@@ -314,7 +328,7 @@ void exchangeSort(float netPay[], int n){
         cout << netPay[i] << " ";       //had to set i = 1 and compare i < n+1 to compensate
     }//for
 
-    cout << endl << endl;
+    cout << endl;
 }//exchangeSort
 
 
@@ -329,5 +343,34 @@ void printUnsortedNetPays(float netPay[], int n){
     for (int i = 0; i < n; i++){
         cout << netPay[i] << " "; 
     }//for
-    cout << endl << endl;
+    cout << endl;
 }//printUnsortedNetPays
+
+
+void pointerSort(float netPay[], int n){
+    float *netPayPointer[n];
+
+    for (int i = 0; i < n; i++){
+        netPayPointer[i] = netPay + i;
+    }//for
+
+    cout << "Pointer Sort Before:  ";
+
+    for (int i = 0; i < n; i++){
+        cout << *netPayPointer[i] << " ";
+    }//for
+
+    cout << endl;
+
+    for (int i = 0; i < n -1; i++){
+        if (*netPayPointer[i] > *netPayPointer[i+1]) pointerSwap(*netPayPointer, i, i + 1);
+    }//for
+
+    cout << "Pointer Sort After:   ";
+    
+    for (int i = 0; i < n; i++){      
+        cout << netPay[i] << " ";      
+    }//for
+
+    cout << endl << endl;
+}//pointerSort
