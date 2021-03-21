@@ -40,8 +40,8 @@ int         readAllData(string[], string[], char[], int[], float[], float[],
                        const int);
 
 //swap function used for sorting netPays
-int         arraySwap(int[], int, int),
-            pointerSwap(int[], int, int);
+int         arraySwap(float[], int, int),
+            pointerSwap(float[], int, int);
 
 //functions that involve printing basic information
 void        getOvertimeHours(float[], float[], int),
@@ -361,15 +361,16 @@ void pointerSort(float netPay[], int n){
     }//for
 
     cout << endl;
-
-    for (int i = 0; i < n -1; i++){
-        if (*netPayPointer[i] > *netPayPointer[i+1]) pointerSwap(*netPayPointer, i, i + 1);
+    for (int pass = 1; pass <= n; pass++){
+        for (int i = 0; i < n -1; i++){
+           if (*netPayPointer[i] > *netPayPointer[i+1]) pointerSwap(*netPayPointer, i, i + 1);
+        }//for
     }//for
 
     cout << "Pointer Sort After:   ";
     
     for (int i = 0; i < n; i++){      
-        cout << netPay[i] << " ";      
+        cout << *netPayPointer[i] << " ";      
     }//for
 
     cout << endl << endl;
