@@ -76,6 +76,7 @@ void Employee::PrintReport(){
 		GetOvertimeHours();
 		GetOvertimePay();
 		GetRegularPay();
+		GetGrossPay();
 	}//while
 }//PrintReport
 
@@ -120,6 +121,11 @@ void Employee::GetOvertimePay(){
 void Employee::GetRegularPay(){
 	RegularPay = HourlyRate * HoursWorked;
 }//GetRegularPay
+
+
+void Employee::GetGrossPay(){
+	GrossPay = RegularPay + OvertimePay;
+}//GetGrossPay
 
 
 int main(){
