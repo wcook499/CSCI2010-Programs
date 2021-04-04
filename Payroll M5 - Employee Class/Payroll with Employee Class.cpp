@@ -60,7 +60,7 @@ class Employee{
 };
 
 Employee::Employee(){	
-    fin.open("payroll.dat");
+    fin.open("employee.in");
 }//constructor
 
 
@@ -71,7 +71,13 @@ Employee::~Employee(){
 
 void Employee::PrintReport(){
 	PrintHeading();
+
+	while(fin >> FirstName >> LastName >> MaritalStatus >> EmployeeID >> HoursWorked >> HourlyRate){
+		GetOvertimeHours();
+		GetOvertimePay();
+	}//while
 }//PrintReport
+
 
 void Employee::PrintHeading(){
 	cout << "              ██████╗ ██████╗        ███████╗██████╗ ██████╗  █████╗ ██╗  ██╗██╗███╗   ███╗██╗███████╗" << endl;
@@ -88,10 +94,27 @@ void Employee::PrintHeading(){
     cout << string(120, '=') << endl;
 }//PrintHeading
 
+
 void Employee::PrintData(){
-	while(fin >> FirstName >> LastName >> EmployeeID >> MaritalStatus >> HoursWorked >> HourlyRate)
+	
 	cout << FirstName << LastName << endl;
 }//PrintData
+
+
+void Employee::GetOvertimeHours(){
+        if (HoursWorked > 40){
+            OvertimeHours = HoursWorked - 40;
+        }//if
+        else if (HoursWorked <= 40){
+            OvertimeHours = 0;
+        }//else if
+}//GetOvertimeHours
+
+
+void Employee::GetOvertimePay(){
+	OvertimePay = OvertimeHours * (HourlyRate * 1.5);
+}
+
 
 int main(){
 	Employee employee;
