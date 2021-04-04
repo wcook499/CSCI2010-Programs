@@ -75,6 +75,7 @@ void Employee::PrintReport(){
 	while(fin >> FirstName >> LastName >> MaritalStatus >> EmployeeID >> HoursWorked >> HourlyRate){
 		GetOvertimeHours();
 		GetOvertimePay();
+		GetRegularPay();
 	}//while
 }//PrintReport
 
@@ -114,6 +115,11 @@ void Employee::GetOvertimeHours(){
 void Employee::GetOvertimePay(){
 	OvertimePay = OvertimeHours * (HourlyRate * 1.5);
 }
+
+
+void Employee::GetRegularPay(){
+	RegularPay = HourlyRate * HoursWorked;
+}//GetRegularPay
 
 
 int main(){
