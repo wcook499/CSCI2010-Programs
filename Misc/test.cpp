@@ -1,34 +1,33 @@
 #include <fstream>
-
-#include <iostream>
-#include <iomanip>
-#include <string>
+#include<iostream>
+#include <string.h>
 using namespace std;
 
-void PA(int a[], int size){
-    int *pointa[size];
+class person{
+    private: char name[20];
+    char telephone[18];
+    ifstream fin;
+    public:  person(){ fin.open("data.in"); }
+    ~person(){fin.close(); }
+    search (char []);
+};
 
-    for (int i = 0; i < size; i++){
-        pointa[i] = a + i;
-    }
-
-    for (int i = 0; i < size; i++){
-        cout << pointa[i];
-    }
-    cout << endl;
-
-    for (int i = 0; i < size; i++){
-        cout << *pointa[i];
-    }
-    cout << endl;
-}
+person :: paint(char searchname[]){
+    while(fin>>name>>telephone)
+    if(strcmp(searchname, name) == 0){
+     	cout<<"FOUND!"<<endl;
+        cout<<"NAME : "<<name<<endl<<"PHONE NO : "<<telephone<<endl;
+        return 1;
+    }//IF
+    cout<<"NOT FOUND..."<<endl;
+    return 0;
+}//SEARCH
 
 
-int main(){
-
-int a[] = {1,2,3,4,5};
-int size = 5;
-PA(a, size);
-
-return 0;
-}
+void main(){
+    person employee;
+    char nametosearch[20];
+    cout<<"ENTER NAME TO SEARCH : ";
+    cin>>nametosearch;
+    employee.search(nametosearch);
+}//MAIN
