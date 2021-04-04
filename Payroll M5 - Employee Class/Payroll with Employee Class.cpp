@@ -78,6 +78,8 @@ void Employee::PrintReport(){
 		GetRegularPay();
 		GetGrossPay();
 		GetTaxRate();
+		GetTaxAmount();
+		GetNetPay();
 	}//while
 }//PrintReport
 
@@ -137,6 +139,11 @@ void Employee::GetTaxRate(){
 void Employee::GetTaxAmount(){
 	TaxAmount = GrossPay * TaxRate;
 }//GetTaxAmount
+
+
+void Employee::GetNetPay(){
+	NetPay = GrossPay - TaxAmount;
+}//GetNetPay
 
 
 int main(){
