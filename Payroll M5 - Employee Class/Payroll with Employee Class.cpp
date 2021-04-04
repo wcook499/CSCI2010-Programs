@@ -26,7 +26,8 @@ using namespace std;
 
 class Employee{
 	//data members
-	int 		EmployeeID;
+	int 		EmployeeID,
+				NumEmployees;
 	string		FirstName,
 				LastName;
 	char		MaritalStatus;
@@ -39,7 +40,8 @@ class Employee{
 				OvertimePay,
 				GrossPay,
 				NetPay,
-				NetPayAverage;
+				NetPayAverage,
+				NetPayTotal;
 				
 	ifstream 	fin;
 
@@ -47,7 +49,7 @@ class Employee{
 				~Employee();		//destructor
 
 	void 		PrintReport(),
-				PrintHeading(),
+				PrintDataHeading(),
 				PrintData(),
 				GetOvertimeHours(),
 				GetOvertimePay(),
@@ -55,7 +57,9 @@ class Employee{
 				GetGrossPay(),
 				GetTaxRate(),
 				GetTaxAmount(),
-				GetNetPay();
+				GetNetPay(),
+				GetNetPayAverage(),
+				PrintNetPayAverage();
 
 };
 
@@ -70,9 +74,13 @@ Employee::~Employee(){
 
 
 void Employee::PrintReport(){
-	PrintHeading();
+	NumEmployees = 0;
+	NetPayTotal = 0;
 
-	while(fin >> FirstName >> LastName >> MaritalStatus >> EmployeeID >> HoursWorked >> HourlyRate){
+	PrintDataHeading();
+
+	while(fin >> FirstName >> LastName >> MaritalStatus >> EmployeeID 
+		  >> HoursWorked >> HourlyRate){
 		GetOvertimeHours();
 		GetOvertimePay();
 		GetRegularPay();
@@ -81,11 +89,16 @@ void Employee::PrintReport(){
 		GetTaxAmount();
 		GetNetPay();
 		PrintData();
+		NumEmployees++;
+		NetPayTotal = NetPayTotal + NetPay;
 	}//while
+
+	GetNetPayAverage();
+	PrintNetPayAverage();
 }//PrintReport
 
 
-void Employee::PrintHeading(){
+void Employee::PrintDataHeading(){
 	cout << "              ██████╗ ██████╗        ███████╗██████╗ ██████╗  █████╗ ██╗  ██╗██╗███╗   ███╗██╗███████╗" << endl;
     cout << "              ██╔══██╗██╔══██╗       ██╔════╝██╔══██╗██╔══██╗██╔══██╗██║  ██║██║████╗ ████║██║██╔════╝" << endl;
     cout << "              ██║  ██║██████╔╝       █████╗  ██████╔╝██████╔╝███████║███████║██║██╔████╔██║██║███████╗" << endl;
@@ -149,6 +162,21 @@ void Employee::GetTaxAmount(){
 void Employee::GetNetPay(){
 	NetPay = GrossPay - TaxAmount;
 }//GetNetPay
+
+
+void Employee::GetNetPayAverage(){
+	NetPayAverage = NetPayTotal / NumEmployees;
+}//GetNetPayAverage
+
+
+void Employee::PrintNetPayAverage(){
+	cout << endl << endl;
+    cout << string(120, '-') << endl;
+	cout << "NET PAY AVERAGE: " << NetPayAverage << endl;
+	cout << string(120, '-') << endl;
+	cout << endl << endl;
+	cout << string(120, '=') << endl;
+}//PrintNetPayAverage
 
 
 int main(){
