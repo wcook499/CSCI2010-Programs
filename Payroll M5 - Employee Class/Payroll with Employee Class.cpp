@@ -134,6 +134,11 @@ void Employee::GetTaxRate(){
 }//GetTaxRate
 
 
+void Employee::GetTaxAmount(){
+	TaxAmount = GrossPay * TaxRate;
+}//GetTaxAmount
+
+
 int main(){
 	Employee employee;
 	employee.PrintReport();
