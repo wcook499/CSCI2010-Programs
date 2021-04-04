@@ -80,6 +80,7 @@ void Employee::PrintReport(){
 		GetTaxRate();
 		GetTaxAmount();
 		GetNetPay();
+		PrintData();
 	}//while
 }//PrintReport
 
@@ -101,8 +102,12 @@ void Employee::PrintHeading(){
 
 
 void Employee::PrintData(){
-	
-	cout << FirstName << LastName << endl;
+	cout << fixed << setprecision(2) << setw(10) << FirstName << setw(10)
+	<< LastName << setw(10) << MaritalStatus << setw(10) << EmployeeID
+	<< setw(10) << HoursWorked << setw(10) << HourlyRate << setw(10)
+	<< OvertimeHours << setw(10) << OvertimePay << setw(10) << RegularPay
+	<< setw(10) << GrossPay << setw(10) << TaxAmount << setw(10) << NetPay
+	<< endl;
 }//PrintData
 
 
