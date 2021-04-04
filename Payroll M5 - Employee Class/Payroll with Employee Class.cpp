@@ -77,6 +77,7 @@ void Employee::PrintReport(){
 		GetOvertimePay();
 		GetRegularPay();
 		GetGrossPay();
+		GetTaxRate();
 	}//while
 }//PrintReport
 
@@ -126,6 +127,11 @@ void Employee::GetRegularPay(){
 void Employee::GetGrossPay(){
 	GrossPay = RegularPay + OvertimePay;
 }//GetGrossPay
+
+
+void Employee::GetTaxRate(){
+	TaxRate = .3;
+}//GetTaxRate
 
 
 int main(){
