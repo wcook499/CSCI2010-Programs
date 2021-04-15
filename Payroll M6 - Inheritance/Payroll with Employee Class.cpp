@@ -5,6 +5,17 @@ WILLIAM COOK
 Module 18 Assignment
 
 
+Expand the Employee Payroll program to include hourly based and salary based
+employees. This phase uses an array of employee objects, inheritance for
+different classes of employees, and polymorphism for salary computation. The 52
+week yearly salary as well as number of overtime hours worked by a salary based
+employee is given). For salary based employees, to find the regular (gross) pay
+for a week, divide the salary by 52. To compute the overtime pay for a salary
+based employee, first find the hourly rate by dividing the gross pay by 40, and
+then compute overtime pay. For every employee, overtime pay, tax amount, and 
+net pay must also be computed. In addition, the program should find the minimum
+and maximum net pay of all employees as well as sort the employees based on
+their net pay (ascending order).
 
 */
 
