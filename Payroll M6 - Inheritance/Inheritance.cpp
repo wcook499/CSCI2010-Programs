@@ -74,6 +74,13 @@ Employee::~Employee(){
     fin.close();
 }//destructor
 
+class Hourly : public Employee{
+
+}//Hourly
+
+class Salary : public Employee{
+
+}//Salary
 
 void Employee::PrintReport(){
 	NumEmployees = 0;
