@@ -155,7 +155,7 @@ class Hourly: public Employee{
 	}
 
 
-	void PointerSort(Employee **EmployeeList, int n){
+	void Sort(Employee **EmployeeList, int n){
 		for(int i=0; i<n-1; i++){
 			for(int j=i+1; j<n; j++){
 				if(EmployeeList[i]->NetPay > EmployeeList[j]->NetPay){
@@ -205,7 +205,7 @@ int main(){
 	
 	PrintDataHeading();
 	
-	PointerSort(EmployeeList, NumberEmployees);
+	Sort(EmployeeList, NumberEmployees);
 
 	for (int i=0; i<NumberEmployees; i++){
 		EmployeeList[i]->PrintData();
